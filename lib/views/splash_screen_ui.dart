@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_diaryfood_app/utils/gradient_text.dart';
+import 'package:my_diaryfood_app/views/home_ui.dart';
 
 class SplashScreenUI extends StatefulWidget {
   const SplashScreenUI({super.key});
@@ -11,6 +12,26 @@ class SplashScreenUI extends StatefulWidget {
 }
 
 class _SplashScreenUIState extends State<SplashScreenUI> {
+  @override
+  void initState() {
+    // คำสั่งในการหน่วงเวลา เพื่อเปิดไปยังหน้า HomeUI
+    Future.delayed(
+      // ระยะเวลาที่หน่วง
+      Duration(
+        seconds: 3,
+      ),
+      // พอครบกำหนดระยะเวลา จะให้เปิดหน้า HomeUI
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeUI(),
+        ),
+      ),
+    );
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
