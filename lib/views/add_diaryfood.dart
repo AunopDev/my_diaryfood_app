@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddDairyfoodUI extends StatefulWidget {
   const AddDairyfoodUI({super.key});
@@ -467,15 +466,9 @@ class _AddDairyfoodUIState extends State<AddDairyfoodUI> {
                     border: Border.all(
                       color: Colors.green,
                     ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15.0),
-                    ),
                   ),
-                  child: GoogleMap(
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(0.0, 0.0),
-                      zoom: 10.0,
-                    ),
+                  child: Image.asset(
+                    'assets/images/map.png',
                   ),
                 ),
               ),
