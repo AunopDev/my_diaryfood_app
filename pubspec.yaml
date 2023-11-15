@@ -41,6 +41,7 @@ dependencies:
   geolocator: ^10.1.0 #ใช้ระบุตำแหน่งปัจจุบัน
   google_maps_flutter: ^2.5.0 #ใช้เพื่อฝังกูเกิ้ลแมพไว้ในแอป
   http: ^1.1.0 #ใช้เพื่อติดต่อกับเซิฟเวอร์
+  flutter_holo_date_picker: ^1.1.3 # ใช้เปืดให้เลือก วัน เดือน ปี
 
 dev_dependencies:
   flutter_test:

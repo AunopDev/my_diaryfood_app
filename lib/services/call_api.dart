@@ -6,12 +6,13 @@ import 'dart:convert';
 
 import 'package:my_diaryfood_app/models/diaryfood.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_diaryfood_app/utils/env.dart';
 
 class CallApi {
   // เมธอดเรียกใช้ API : getall --------------------------------------------
   static Future<List<Diaryfood>> callAPIGetAllDiaryfood() async {
     final response = await http.get(
-      Uri.parse('http://192.168.91.1/diaryfoodapi/api/api_getall_diaryfood.php'),
+      Uri.parse(Env.domainURL +  '/diaryfoodapi/api/api_getall_diaryfood.php'),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -34,7 +35,7 @@ class CallApi {
   static Future<String> callAPIInsertDiaryfood(Diaryfood diaryfood) async {
     // เรียกใช้ API
     final response = await http.post(
-      Uri.parse('http://localhost/diaryfoodapi/api/api_insert_diaryfood.php'),
+      Uri.parse(Env.domainURL + '/diaryfoodapi/api/api_insert_diaryfood.php'),
       body: jsonEncode(diaryfood.toJson()),
       headers: {'Content-Type': 'application/json'},
     );
@@ -42,9 +43,10 @@ class CallApi {
     if (response.statusCode == 200) {
       // เอาข้อมูลที่ส่งกลับมาเป็น JSON แปลงเป็นข้อมูลที่จะนำมาใช้ในแอป เก็ยไว้ในตัวแปร
       final responseData = jsonDecode(response.body);
+      print(responseData['message']);
 
       // ส่งค่าข้อมูลที่ส่งกลับมาไปที่จุดเรียกใช้เมธอด
-      return responseData['massage'];
+      return responseData['message']!;
     } else {
       throw Exception('Failed to fetch data');
     }
@@ -54,7 +56,7 @@ class CallApi {
   static Future<String> callAPIUpdateDiaryfood(Diaryfood diaryfood) async {
     // เรียกใช้ API
     final response = await http.post(
-      Uri.parse('http://localhost/diaryfoodapi/api/api_update_diaryfood.php'),
+      Uri.parse(Env.domainURL + '/diaryfoodapi/api/api_update_diaryfood.php'),
       body: jsonEncode(diaryfood.toJson()),
       headers: {'Content-Type': 'application/json'},
     );
@@ -74,7 +76,7 @@ class CallApi {
   static Future<String> callAPIDeleteDiaryfood(Diaryfood diaryfood) async {
     // เรียกใช้ API
     final response = await http.post(
-      Uri.parse('http://localhost/diaryfoodapi/api/api_delete_diaryfood.php'),
+      Uri.parse(Env.domainURL + '/diaryfoodapi/api/api_delete_diaryfood.php'),
       body: jsonEncode(diaryfood.toJson()),
       headers: {'Content-Type': 'application/json'},
     );
