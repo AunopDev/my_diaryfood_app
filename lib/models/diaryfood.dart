@@ -6,6 +6,8 @@ class Diaryfood {
   String? foodPay;
   String? foodMeal;
   String? foodDate;
+  String? foodLat;
+  String? foodLng;
   String? foodProvince;
 
   Diaryfood(
@@ -16,6 +18,8 @@ class Diaryfood {
       this.foodPay,
       this.foodMeal,
       this.foodDate,
+      this.foodLat,
+      this.foodLng,
       this.foodProvince});
 
   Diaryfood.fromJson(Map<String, dynamic> json) {
@@ -26,6 +30,8 @@ class Diaryfood {
     foodPay = json['foodPay'];
     foodMeal = json['foodMeal'];
     foodDate = json['foodDate'];
+    foodLat = json['foodLat'];
+    foodLng = json['foodLng'];
     foodProvince = json['foodProvince'];
   }
 
@@ -38,6 +44,8 @@ class Diaryfood {
     data['foodPay'] = this.foodPay;
     data['foodMeal'] = this.foodMeal;
     data['foodDate'] = this.foodDate;
+    data['foodLat'] = this.foodLat;
+    data['foodLng'] = this.foodLng;
     data['foodProvince'] = this.foodProvince;
     return data;
   }

@@ -201,7 +201,7 @@ class _AddDairyfoodUIState extends State<AddDairyfoodUI> {
   XFile? foodImageSelected;
 
   // ตัวแปรเก็บรูปภาพที่แปลงเป็น base64 เพื่อส่งไปที่ server
-  String? foodImageBase64;
+  String? foodImageBase64 = '';
 
   // เมธอดที่ใช้ในการเปิดกล้อง หรือเปิดแกลอรี่
   openGalleryAndSelectImage() async {
@@ -772,7 +772,7 @@ class _AddDairyfoodUIState extends State<AddDairyfoodUI> {
                   }
                 },
                 child: Text(
-                  'บันทึกการกิน',
+                  'บันทึกข้อมูลการกิน',
                   style: GoogleFonts.itim(),
                 ),
                 style: ElevatedButton.styleFrom(
